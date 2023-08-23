@@ -24,4 +24,21 @@ app.route('/add')
   .catch(err => res.status(400).json("Error: " + err))
 })
 
+app.route('/delete')
+.delete((req, res) =>{
+  const deleteId = req.body.id;
+  User.findByIdAndRemove(deleteId)
+  .then(() => res.json(" Succesfully deleted "))
+  .catch(err => res.status(400).json("Error: " + err))
+})
+
+app.route('/:id')
+.get((req, res) =>{
+  const id = req.params.id
+  User.findById(id)
+  .then(foundId =>{
+    res.json(foundId)
+  }).catch(err => res.status(400).json("Error: " + err))
+})
+
 module.exports = app;

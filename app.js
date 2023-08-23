@@ -30,7 +30,7 @@ mongoose.connect(uri , {useNewUrlParser: true, useUnifiedTopology: true }).then(
 const exercisesRouter = require("./routes/exercises");
 const usersRouter = require("./routes/users");
 
-app.use('/excercises', exercisesRouter);  // when you load '/excercises' on url it would load everything in exercisesRouter
+app.use('/exercises', exercisesRouter);  // when you load '/excercises' on url it would load everything in exercisesRouter
 app.use('/users', usersRouter);
 
 //Listening on port 3000 and if it goes well then logging a message saying that the server is running

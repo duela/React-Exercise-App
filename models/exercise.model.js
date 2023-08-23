@@ -5,7 +5,7 @@ const exerciseSchema = new mongoose.Schema({
     // validation
     type: String,  required: true,
   },
-  decription: {
+  description: {
     type: String,required: true,
   },
   duration: {
