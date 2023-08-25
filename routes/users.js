@@ -41,4 +41,14 @@ app.route('/:id')
   }).catch(err => res.status(400).json("Error: " + err))
 })
 
+app.route('/update/:id')
+.put((req, res) =>{
+  const id = req.params.id
+  User.findByIdAndUpdate(id, {username: req.body.username})
+  .then(updateUser =>{
+
+    res.json(updateUser);
+  }).catch(err => res.status(400).json("Error: " + err))
+})
+
 module.exports = app;

@@ -61,6 +61,21 @@ app.route('/:id')
   }).catch(err => res.status(400).json("Error: " + err))
 })
 
+app.route('/update/:id')
+.put((req, res) =>{
+  const id = req.params.id
+  Excercise.findByIdAndUpdate(id,
+    {
+      username: req.body.username,
+     description: req.body.description,
+     duration: Number(req.body.duration),
+     date: Date.parse(req.body.date)
+   })
+  .then(updateExcercise =>{
+    res.json("Updated Succesfully ");
+  }).catch(err => res.status(400).json("Error: " + err))
+})
+
 module.exports = app;
 
 
